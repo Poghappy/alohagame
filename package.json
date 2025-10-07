@@ -1,0 +1,71 @@
+{
+  "name": "bytebot",
+  "version": "1.0.0",
+  "description": "AI-powered desktop automation and task management platform",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:agent\" \"npm run dev:ui\"",
+    "dev:agent": "cd packages/bytebot-agent && npm run start:dev",
+    "dev:ui": "cd packages/bytebot-ui && npm run dev",
+    "dev:desktop": "cd packages/bytebotd && npm run start:dev",
+    "build": "npm run build:agent && npm run build:ui && npm run build:desktop",
+    "build:agent": "cd packages/bytebot-agent && npm run build",
+    "build:ui": "cd packages/bytebot-ui && npm run build",
+    "build:desktop": "cd packages/bytebotd && npm run build",
+    "test": "npm run test:agent && npm run test:ui",
+    "test:agent": "cd packages/bytebot-agent && npm run test",
+    "test:ui": "cd packages/bytebot-ui && npm run test",
+    "lint": "npm run lint:agent && npm run lint:ui",
+    "lint:agent": "cd packages/bytebot-agent && npm run lint",
+    "lint:ui": "cd packages/bytebot-ui && npm run lint",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "clean": "npm run clean:agent && npm run clean:ui && npm run clean:desktop",
+    "clean:agent": "cd packages/bytebot-agent && rm -rf dist node_modules",
+    "clean:ui": "cd packages/bytebot-ui && rm -rf .next node_modules",
+    "clean:desktop": "cd packages/bytebotd && rm -rf dist node_modules",
+    "install:all": "npm install && npm run install:packages",
+    "install:packages": "cd packages/bytebot-agent && npm install && cd ../bytebot-ui && npm install && cd ../bytebotd && npm install",
+    "docker:dev": "docker-compose -f docker/docker-compose.development.yml up -d",
+    "docker:prod": "docker-compose -f docker/docker-compose.yml up -d",
+    "docker:down": "docker-compose -f docker/docker-compose.development.yml down && docker-compose -f docker/docker-compose.yml down",
+    "prisma:dev": "cd packages/bytebot-agent && npm run prisma:dev",
+    "prisma:deploy": "cd packages/bytebot-agent && npm run prisma:deploy",
+    "setup": "npm run install:all && npm run prisma:dev && npm run docker:dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bytebot-ai/bytebot.git"
+  },
+  "keywords": [
+    "ai",
+    "automation",
+    "desktop",
+    "task-management",
+    "typescript",
+    "nestjs",
+    "nextjs",
+    "electron"
+  ],
+  "author": "Bytebot AI Team",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/bytebot-ai/bytebot/issues"
+  },
+  "homepage": "https://bytebot.ai"
+}

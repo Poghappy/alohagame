@@ -80,6 +80,10 @@ Bytebot isn't limited to web interfaces. It can:
 
 ## Quick Start
 
+### 🚀 New to Bytebot? Start Here!
+
+📖 **[Complete Quick Start Guide](QUICKSTART.md)** - Get up and running in 5 minutes
+
 ### Deploy in 2 Minutes
 
 **Option 1: Railway (Easiest)**
@@ -285,6 +289,11 @@ We welcome contributions! Whether it's:
 - ✨ New features
 - 📚 Documentation improvements
 - 🌐 Translations
+
+### 👨‍💻 For Developers
+
+📖 **[Development Guide](CONTRIBUTING.md)** - Complete setup and contribution workflow  
+🚀 **[Quick Start Guide](QUICKSTART.md)** - Get the development environment running
 
 Please:
 
