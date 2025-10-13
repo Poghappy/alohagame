@@ -1,6 +1,11 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+
+// 强制动态渲染，禁用缓存
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';
 import { Header } from "@/components/layout/Header";
 import { ChatContainer } from "@/components/messages/ChatContainer";
 import { DesktopContainer } from "@/components/ui/desktop-container";

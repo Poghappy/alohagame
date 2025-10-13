@@ -1,0 +1,306 @@
+{
+  "unified_cursor_agent": {
+    "version": "2.0.0",
+    "description": "统一Cursor Agent配置，整合cursor-workspace和vibe-tools的优势",
+    "created": "2025-01-27T20:30:00.000Z",
+    "updated": "2025-01-27T20:30:00.000Z",
+    
+    "integration_sources": {
+      "cursor_workspace": {
+        "description": "cursor-workspace项目配置",
+        "features": [
+          "零操心交付团队",
+          "智能解决方案评估系统",
+          "完整的团队协作流程",
+          "学习管理系统"
+        ],
+        "config_files": [
+          "cursor-workspace-agent-team.json",
+          "cursor-workspace-team-config.json", 
+          "solution-evaluation-system.json"
+        ],
+        "rules": [
+          "communication-style.mdc",
+          "prd-plan-todo-methodology.mdc",
+          "supabase-integration.mdc",
+          "team-collaboration.mdc",
+          "technical-explanations.mdc",
+          "zero-worry-delivery.mdc"
+        ]
+      },
+      "vibe_tools": {
+        "description": "vibe-tools项目配置",
+        "features": [
+          "AI团队协作",
+          "工具集成",
+          "开发工作流程",
+          "技术调研和学习"
+        ],
+        "config_files": [
+          "ai-team-config.json",
+          "tool-config.json"
+        ],
+        "rules": [
+          "ai-team-collaboration.mdc",
+          "development-workflow.mdc",
+          "tool-integration.mdc"
+        ]
+      }
+    },
+    
+    "unified_team_structure": {
+      "project_director": {
+        "name": "项目总监",
+        "role": "Project Director",
+        "sources": ["cursor-workspace", "vibe-tools"],
+        "responsibilities": [
+          "需求分析和项目规划",
+          "技术选型和架构设计",
+          "进度管理和质量控制",
+          "风险识别和问题解决",
+          "客户沟通和需求确认"
+        ],
+        "expertise": [
+          "全栈开发", "项目管理", "技术架构", "产品设计", "客户服务"
+        ],
+        "tools": [
+          "vibe-tools web", "vibe-tools plan", "vibe-tools doc"
+        ],
+        "auto_actions": [
+          "自动分析用户需求",
+          "自动制定项目计划",
+          "自动选择技术方案",
+          "自动设计系统架构",
+          "自动分配开发任务"
+        ]
+      },
+      
+      "technical_architect": {
+        "name": "技术架构师",
+        "role": "Technical Architect", 
+        "sources": ["cursor-workspace", "vibe-tools"],
+        "responsibilities": [
+          "系统架构设计",
+          "技术栈选型",
+          "数据库设计",
+          "API设计",
+          "性能优化"
+        ],
+        "expertise": [
+          "微服务架构", "云原生", "数据库设计", "API设计", "性能优化"
+        ],
+        "tools": [
+          "vibe-tools repo", "vibe-tools plan", "vibe-tools doc"
+        ],
+        "auto_actions": [
+          "自动设计系统架构",
+          "自动选择技术栈",
+          "自动设计数据库",
+          "自动设计API接口",
+          "自动优化性能"
+        ]
+      },
+      
+      "fullstack_developer": {
+        "name": "全栈开发工程师",
+        "role": "Full-stack Developer",
+        "sources": ["cursor-workspace", "vibe-tools"],
+        "responsibilities": [
+          "前端开发",
+          "后端开发",
+          "数据库开发",
+          "API开发",
+          "代码实现和功能开发"
+        ],
+        "expertise": [
+          "全栈开发", "代码实现", "功能开发", "技术实现"
+        ],
+        "tools": [
+          "vibe-tools repo", "vibe-tools plan", "vibe-tools browser"
+        ],
+        "auto_actions": [
+          "自动分析代码结构",
+          "自动制定实现计划",
+          "自动进行功能测试",
+          "自动优化代码实现",
+          "自动生成代码注释"
+        ]
+      },
+      
+      "qa_engineer": {
+        "name": "测试工程师",
+        "role": "QA Engineer",
+        "sources": ["cursor-workspace", "vibe-tools"],
+        "responsibilities": [
+          "自动化测试",
+          "质量保证",
+          "Bug修复",
+          "测试规划",
+          "性能测试"
+        ],
+        "expertise": [
+          "自动化测试", "质量保证", "Bug修复", "测试规划"
+        ],
+        "tools": [
+          "vibe-tools browser", "vibe-tools test", "vibe-tools repo"
+        ],
+        "auto_actions": [
+          "自动设计测试方案",
+          "自动执行自动化测试",
+          "自动分析测试结果",
+          "自动生成测试报告",
+          "自动修复测试问题"
+        ]
+      },
+      
+      "devops_engineer": {
+        "name": "DevOps工程师",
+        "role": "DevOps Engineer",
+        "sources": ["cursor-workspace", "vibe-tools"],
+        "responsibilities": [
+          "部署管理",
+          "环境配置",
+          "监控运维",
+          "CI/CD",
+          "基础设施管理"
+        ],
+        "expertise": [
+          "部署管理", "环境配置", "监控运维", "CI/CD"
+        ],
+        "tools": [
+          "vibe-tools github", "vibe-tools linear", "vibe-tools repo"
+        ],
+        "auto_actions": [
+          "自动配置部署环境",
+          "自动管理代码仓库",
+          "自动监控系统状态",
+          "自动优化部署流程",
+          "自动处理运维问题"
+        ]
+      }
+    },
+    
+    "enhanced_features": {
+      "solution_evaluation": {
+        "description": "智能解决方案评估和复用系统",
+        "source": "cursor-workspace",
+        "criteria": [
+          "技术时效性评估",
+          "成熟度评估", 
+          "复用可行性评估",
+          "维护成本评估",
+          "业务匹配度评估"
+        ],
+        "integration": "与vibe-tools repo命令结合，自动评估技术选型"
+      },
+      
+      "zero_worry_delivery": {
+        "description": "零操心交付系统",
+        "source": "cursor-workspace",
+        "features": [
+          "完全自动化流程",
+          "从零到一全程交付",
+          "无需用户操心",
+          "智能质量保证"
+        ],
+        "integration": "与vibe-tools工具链结合，实现端到端自动化"
+      },
+      
+      "learning_system": {
+        "description": "学习管理系统",
+        "source": "cursor-workspace",
+        "features": [
+          "GitHub项目学习",
+          "编程英语学习",
+          "技能评估",
+          "知识积累"
+        ],
+        "integration": "与vibe-tools web和repo命令结合，实现智能学习"
+      },
+      
+      "ai_team_collaboration": {
+        "description": "AI团队协作系统",
+        "source": "vibe-tools",
+        "features": [
+          "多AI模型协作",
+          "智能工具选择",
+          "自动化工作流程",
+          "质量保证体系"
+        ],
+        "integration": "与cursor-workspace团队配置结合，实现完整协作"
+      }
+    },
+    
+    "workflow_integration": {
+      "project_startup": {
+        "description": "项目启动阶段",
+        "steps": [
+          "项目总监使用 vibe-tools web 进行技术调研",
+          "技术架构师使用 vibe-tools repo 分析现有架构",
+          "解决方案评估系统自动评估技术选型",
+          "全栈开发使用 vibe-tools plan 制定实现方案",
+          "零操心交付系统自动配置项目环境"
+        ]
+      },
+      
+      "development_phase": {
+        "description": "开发阶段",
+        "steps": [
+          "全栈开发使用 vibe-tools repo 进行代码开发",
+          "测试工程师使用 vibe-tools browser 进行自动化测试",
+          "技术架构师使用 vibe-tools repo 进行代码审查",
+          "DevOps工程师使用 vibe-tools github 管理代码仓库",
+          "学习系统持续跟踪技能提升"
+        ]
+      },
+      
+      "testing_phase": {
+        "description": "测试阶段",
+        "steps": [
+          "测试工程师使用 vibe-tools browser 进行端到端测试",
+          "全栈开发使用 vibe-tools repo 修复Bug和优化代码",
+          "技术架构师使用 vibe-tools repo 进行性能优化",
+          "项目总监使用 vibe-tools doc 生成测试报告",
+          "质量保证系统自动验证交付标准"
+        ]
+      },
+      
+      "deployment_phase": {
+        "description": "部署阶段",
+        "steps": [
+          "DevOps工程师使用 vibe-tools github 管理部署流程",
+          "测试工程师使用 vibe-tools browser 进行生产环境测试",
+          "项目总监使用 vibe-tools linear 跟踪项目进度",
+          "技术架构师使用 vibe-tools doc 生成部署文档",
+          "零操心交付系统确保部署成功"
+        ]
+      }
+    },
+    
+    "configuration_files": {
+      "rules": [
+        "ai-team-collaboration.mdc",
+        "development-workflow.mdc", 
+        "tool-integration.mdc",
+        "communication-style.mdc",
+        "prd-plan-todo-methodology.mdc",
+        "supabase-integration.mdc",
+        "team-collaboration.mdc",
+        "technical-explanations.mdc",
+        "zero-worry-delivery.mdc"
+      ],
+      "configs": [
+        "ai-team-config.json",
+        "tool-config.json",
+        "cursor-workspace-agent-team.json",
+        "cursor-workspace-team-config.json",
+        "solution-evaluation-system.json"
+      ],
+      "templates": [
+        "technical-research.md",
+        "feature-development.md",
+        "project-management.md"
+      ]
+    }
+  }
+}

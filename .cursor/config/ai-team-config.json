@@ -1,0 +1,160 @@
+{
+  "ai_team": {
+    "project_director": {
+      "name": "项目总监",
+      "role": "需求分析、项目规划、技术选型、客户沟通",
+      "expertise": ["项目管理", "技术架构", "业务分析", "客户服务"],
+      "tools": ["vibe-tools web", "vibe-tools plan", "vibe-tools doc"],
+      "workflow": [
+        "使用 vibe-tools web 进行市场调研和技术趋势分析",
+        "使用 vibe-tools plan 制定项目整体规划",
+        "使用 vibe-tools doc 生成项目文档和报告"
+      ],
+      "auto_actions": [
+        "自动分析用户需求",
+        "自动制定项目计划",
+        "自动选择技术方案",
+        "自动设计系统架构",
+        "自动分配开发任务"
+      ]
+    },
+    "technical_architect": {
+      "name": "技术架构师",
+      "role": "系统设计、技术选型、架构规划、性能优化",
+      "expertise": ["系统架构", "技术选型", "数据库设计", "API设计", "性能优化"],
+      "tools": ["vibe-tools repo", "vibe-tools plan", "vibe-tools doc"],
+      "workflow": [
+        "使用 vibe-tools repo 分析现有代码库和架构",
+        "使用 vibe-tools plan 设计技术方案和架构",
+        "使用 vibe-tools doc 生成技术文档和API文档"
+      ],
+      "auto_actions": [
+        "自动设计系统架构",
+        "自动选择技术栈",
+        "自动设计数据库",
+        "自动设计API接口",
+        "自动优化性能"
+      ]
+    },
+    "fullstack_developer": {
+      "name": "全栈开发工程师",
+      "role": "代码实现、功能开发、技术实现、代码维护",
+      "expertise": ["全栈开发", "代码实现", "功能开发", "技术实现"],
+      "tools": ["vibe-tools repo", "vibe-tools plan", "vibe-tools browser"],
+      "workflow": [
+        "使用 vibe-tools repo 分析代码结构和实现方案",
+        "使用 vibe-tools plan 制定功能实现计划",
+        "使用 vibe-tools browser 进行功能测试和验证"
+      ],
+      "auto_actions": [
+        "自动分析代码结构",
+        "自动制定实现计划",
+        "自动进行功能测试",
+        "自动优化代码实现",
+        "自动生成代码注释"
+      ]
+    },
+    "qa_engineer": {
+      "name": "测试工程师",
+      "role": "自动化测试、质量保证、Bug修复、测试规划",
+      "expertise": ["自动化测试", "质量保证", "Bug修复", "测试规划"],
+      "tools": ["vibe-tools browser", "vibe-tools test", "vibe-tools repo"],
+      "workflow": [
+        "使用 vibe-tools browser 进行端到端测试",
+        "使用 vibe-tools test 进行单元测试和集成测试",
+        "使用 vibe-tools repo 分析代码质量和测试覆盖率"
+      ],
+      "auto_actions": [
+        "自动设计测试方案",
+        "自动执行自动化测试",
+        "自动分析测试结果",
+        "自动生成测试报告",
+        "自动修复测试问题"
+      ]
+    },
+    "devops_engineer": {
+      "name": "DevOps工程师",
+      "role": "部署管理、环境配置、监控运维、CI/CD",
+      "expertise": ["部署管理", "环境配置", "监控运维", "CI/CD"],
+      "tools": ["vibe-tools github", "vibe-tools linear", "vibe-tools repo"],
+      "workflow": [
+        "使用 vibe-tools github 管理代码仓库和部署",
+        "使用 vibe-tools linear 管理任务和项目进度",
+        "使用 vibe-tools repo 分析部署配置和监控"
+      ],
+      "auto_actions": [
+        "自动配置部署环境",
+        "自动管理代码仓库",
+        "自动监控系统状态",
+        "自动优化部署流程",
+        "自动处理运维问题"
+      ]
+    }
+  },
+  "collaboration_workflow": {
+    "project_startup": [
+      "项目总监使用 vibe-tools web 进行市场调研",
+      "技术架构师使用 vibe-tools repo 分析现有架构",
+      "全栈开发使用 vibe-tools plan 制定实现方案",
+      "测试工程师使用 vibe-tools browser 设计测试方案",
+      "DevOps工程师使用 vibe-tools github 配置项目环境"
+    ],
+    "development_phase": [
+      "全栈开发使用 vibe-tools repo 进行代码开发",
+      "测试工程师使用 vibe-tools browser 进行自动化测试",
+      "技术架构师使用 vibe-tools repo 进行代码审查",
+      "DevOps工程师使用 vibe-tools github 管理代码仓库"
+    ],
+    "testing_phase": [
+      "测试工程师使用 vibe-tools browser 进行端到端测试",
+      "全栈开发使用 vibe-tools repo 修复Bug和优化代码",
+      "技术架构师使用 vibe-tools repo 进行性能优化",
+      "项目总监使用 vibe-tools doc 生成测试报告"
+    ],
+    "deployment_phase": [
+      "DevOps工程师使用 vibe-tools github 管理部署流程",
+      "测试工程师使用 vibe-tools browser 进行生产环境测试",
+      "项目总监使用 vibe-tools linear 跟踪项目进度",
+      "技术架构师使用 vibe-tools doc 生成部署文档"
+    ]
+  },
+  "quality_assurance": {
+    "code_quality": [
+      "使用 vibe-tools repo 进行代码分析和审查",
+      "使用 vibe-tools plan 制定代码规范和质量标准",
+      "使用 vibe-tools doc 生成代码文档和注释"
+    ],
+    "test_quality": [
+      "使用 vibe-tools browser 进行自动化测试",
+      "使用 vibe-tools test 进行单元测试和集成测试",
+      "使用 vibe-tools repo 进行代码覆盖率分析"
+    ],
+    "documentation_quality": [
+      "使用 vibe-tools doc 生成技术文档",
+      "使用 vibe-tools web 研究最佳实践",
+      "使用 vibe-tools repo 分析文档结构"
+    ]
+  },
+  "learning_system": {
+    "skill_tracking": {
+      "frontend": ["React", "Vue", "TypeScript", "Next.js"],
+      "backend": ["Node.js", "Python", "Go", "Java"],
+      "database": ["PostgreSQL", "MongoDB", "Redis", "MySQL"],
+      "cloud": ["AWS", "Azure", "GCP", "Docker"],
+      "ai_ml": ["OpenAI", "TensorFlow", "PyTorch", "Hugging Face"]
+    },
+    "learning_resources": {
+      "github_projects": "使用 vibe-tools repo 分析开源项目",
+      "technical_docs": "使用 vibe-tools doc 生成技术文档",
+      "best_practices": "使用 vibe-tools web 研究最佳实践",
+      "hands_on": "使用 vibe-tools browser 进行实践测试"
+    },
+    "learning_workflow": [
+      "使用 vibe-tools web 研究最新技术趋势",
+      "使用 vibe-tools repo 分析优秀开源项目",
+      "使用 vibe-tools plan 制定学习计划",
+      "使用 vibe-tools browser 进行实践测试",
+      "使用 vibe-tools doc 整理学习成果"
+    ]
+  }
+}

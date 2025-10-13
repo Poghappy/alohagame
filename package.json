@@ -1,15 +1,17 @@
 {
-  "name": "bytebot",
+  "name": "alohagamebot",
   "version": "1.0.0",
-  "description": "AI-powered desktop automation and task management platform",
+  "description": "AlohaGameBot - AI-powered desktop automation and task management platform",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev:agent\" \"npm run dev:ui\"",
+    "dev": "concurrently \"npm run dev:agent\" \"npm run dev:ui\" \"npm run dev:desktop\"",
+    "dev:turbo": "concurrently \"npm run dev:agent\" \"npm run dev:ui:turbo\" \"npm run dev:desktop\"",
     "dev:agent": "cd packages/bytebot-agent && npm run start:dev",
     "dev:ui": "cd packages/bytebot-ui && npm run dev",
+    "dev:ui:turbo": "cd packages/bytebot-ui && npm run dev:turbo",
     "dev:desktop": "cd packages/bytebotd && npm run start:dev",
     "build": "npm run build:agent && npm run build:ui && npm run build:desktop",
     "build:agent": "cd packages/bytebot-agent && npm run build",
@@ -37,11 +39,11 @@
     "setup": "npm run install:all && npm run prisma:dev && npm run docker:dev"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "prettier": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.0.0",
+    "prettier": "^3.6.2",
     "typescript": "^5.0.0"
   },
   "engines": {
@@ -50,7 +52,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bytebot-ai/bytebot.git"
+    "url": "https://github.com/alohagamebot/alohagamebot.git"
   },
   "keywords": [
     "ai",
@@ -62,10 +64,10 @@
     "nextjs",
     "electron"
   ],
-  "author": "Bytebot AI Team",
+  "author": "AlohaGameBot Team",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/bytebot-ai/bytebot/issues"
+    "url": "https://github.com/alohagamebot/alohagamebot/issues"
   },
-  "homepage": "https://bytebot.ai"
+  "homepage": "https://alohagamebot.ai"
 }

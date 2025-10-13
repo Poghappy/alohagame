@@ -1,0 +1,160 @@
+{
+  "vibe_tools": {
+    "web": {
+      "provider": "perplexity",
+      "model": "sonar-pro",
+      "description": "网络搜索和研究",
+      "use_cases": ["技术调研", "竞品分析", "最新趋势研究", "解决方案搜索"],
+      "examples": [
+        "vibe-tools web '最新的React 18特性'",
+        "vibe-tools web '用户认证最佳实践'",
+        "vibe-tools web '微服务架构设计模式'"
+      ]
+    },
+    "repo": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "description": "代码库分析",
+      "use_cases": ["架构分析", "代码审查", "技术债务评估", "代码理解"],
+      "examples": [
+        "vibe-tools repo '分析这个项目的架构设计'",
+        "vibe-tools repo '检查代码质量和潜在问题'",
+        "vibe-tools repo '理解这个组件的实现逻辑'"
+      ]
+    },
+    "plan": {
+      "fileProvider": "gemini",
+      "thinkingProvider": "openai",
+      "fileModel": "gemini-2.5-flash",
+      "thinkingModel": "o3",
+      "description": "实现规划",
+      "use_cases": ["功能规划", "技术方案设计", "开发计划", "实现策略"],
+      "examples": [
+        "vibe-tools plan '实现用户认证功能'",
+        "vibe-tools plan '设计微服务架构'",
+        "vibe-tools plan '优化应用性能'"
+      ]
+    },
+    "browser": {
+      "provider": "stagehand",
+      "description": "浏览器自动化",
+      "use_cases": ["端到端测试", "用户界面测试", "功能验证", "自动化操作"],
+      "examples": [
+        "vibe-tools browser '测试登录功能'",
+        "vibe-tools browser '验证用户注册流程'",
+        "vibe-tools browser '检查页面响应性'"
+      ]
+    },
+    "doc": {
+      "provider": "gemini",
+      "model": "gemini-2.5-pro",
+      "description": "文档生成",
+      "use_cases": ["API文档", "技术文档", "项目文档", "代码注释"],
+      "examples": [
+        "vibe-tools doc '生成API使用文档'",
+        "vibe-tools doc '创建项目README'",
+        "vibe-tools doc '编写代码注释'"
+      ]
+    },
+    "github": {
+      "description": "GitHub集成",
+      "use_cases": ["代码管理", "Pull Request", "Issues管理", "代码审查"],
+      "examples": [
+        "vibe-tools github '创建Pull Request'",
+        "vibe-tools github '查看Issues'",
+        "vibe-tools github '管理代码仓库'"
+      ]
+    },
+    "linear": {
+      "description": "Linear项目管理",
+      "use_cases": ["任务管理", "项目跟踪", "团队协作", "进度管理"],
+      "examples": [
+        "vibe-tools linear '创建新任务'",
+        "vibe-tools linear '查看项目进度'",
+        "vibe-tools linear '管理团队任务'"
+      ]
+    },
+    "ask": {
+      "description": "直接模型查询",
+      "use_cases": ["技术问题", "概念解释", "最佳实践咨询", "技术咨询"],
+      "examples": [
+        "vibe-tools ask '什么是微服务架构？'",
+        "vibe-tools ask '如何优化React应用性能？'",
+        "vibe-tools ask '解释JWT认证机制'"
+      ]
+    }
+  },
+  "workflow_scenarios": {
+    "technical_research": {
+      "description": "技术调研场景",
+      "steps": [
+        "vibe-tools web '最新的React 18特性'",
+        "vibe-tools repo '分析现有项目的技术栈'",
+        "vibe-tools plan '制定React 18升级方案'"
+      ]
+    },
+    "feature_development": {
+      "description": "功能开发场景",
+      "steps": [
+        "vibe-tools web '用户认证最佳实践'",
+        "vibe-tools repo '分析认证模块的实现'",
+        "vibe-tools browser '测试登录功能'"
+      ]
+    },
+    "project_delivery": {
+      "description": "项目交付场景",
+      "steps": [
+        "vibe-tools doc '生成API文档'",
+        "vibe-tools linear '创建项目里程碑'",
+        "vibe-tools github '创建Pull Request'"
+      ]
+    },
+    "bug_fixing": {
+      "description": "Bug修复场景",
+      "steps": [
+        "vibe-tools repo '分析Bug的代码实现'",
+        "vibe-tools plan '制定Bug修复方案'",
+        "vibe-tools browser '验证Bug修复效果'"
+      ]
+    }
+  },
+  "environment_variables": {
+    "required": [
+      "OPENAI_API_KEY",
+      "ANTHROPIC_API_KEY", 
+      "GEMINI_API_KEY",
+      "PERPLEXITY_API_KEY"
+    ],
+    "optional": [
+      "GITHUB_TOKEN",
+      "LINEAR_API_KEY",
+      "BROWSERBASE_API_KEY"
+    ]
+  },
+  "configuration_files": {
+    "vibe_tools_config": "vibe-tools.config.json",
+    "cursor_rules": ".cursor/rules/",
+    "ai_team_config": ".cursor/config/ai-team-config.json",
+    "tool_config": ".cursor/config/tool-config.json"
+  },
+  "best_practices": {
+    "tool_selection": {
+      "research": "使用 vibe-tools web",
+      "analysis": "使用 vibe-tools repo",
+      "planning": "使用 vibe-tools plan",
+      "testing": "使用 vibe-tools browser",
+      "documentation": "使用 vibe-tools doc",
+      "management": "使用 vibe-tools github 和 vibe-tools linear"
+    },
+    "context_providing": [
+      "始终提供清晰的查询和上下文",
+      "包含相关的代码片段和项目信息",
+      "说明具体的需求和目标"
+    ],
+    "tool_combination": [
+      "可以组合使用多个工具完成复杂任务",
+      "支持工具之间的信息传递和协作",
+      "提供完整的任务执行记录"
+    ]
+  }
+}

@@ -1,0 +1,136 @@
+---
+description: AI团队协作规则
+globs: *,**/*
+alwaysApply: true
+---
+
+# AI团队协作规则
+
+## 团队角色定义
+
+### 项目总监 (Project Director)
+- **职责**: 需求分析、项目规划、技术选型、客户沟通
+- **专业领域**: 项目管理、技术架构、业务分析、客户服务
+- **主要工具**: `vibe-tools web`, `vibe-tools plan`, `vibe-tools doc`
+- **工作流程**: 
+  1. 使用 `vibe-tools web` 进行市场调研和技术趋势分析
+  2. 使用 `vibe-tools plan` 制定项目整体规划
+  3. 使用 `vibe-tools doc` 生成项目文档和报告
+
+### 技术架构师 (Technical Architect)
+- **职责**: 系统设计、技术选型、架构规划、性能优化
+- **专业领域**: 系统架构、技术选型、数据库设计、API设计、性能优化
+- **主要工具**: `vibe-tools repo`, `vibe-tools plan`, `vibe-tools doc`
+- **工作流程**:
+  1. 使用 `vibe-tools repo` 分析现有代码库和架构
+  2. 使用 `vibe-tools plan` 设计技术方案和架构
+  3. 使用 `vibe-tools doc` 生成技术文档和API文档
+
+### 全栈开发工程师 (Full-stack Developer)
+- **职责**: 代码实现、功能开发、技术实现、代码维护
+- **专业领域**: 全栈开发、代码实现、功能开发、技术实现
+- **主要工具**: `vibe-tools repo`, `vibe-tools plan`, `vibe-tools browser`
+- **工作流程**:
+  1. 使用 `vibe-tools repo` 分析代码结构和实现方案
+  2. 使用 `vibe-tools plan` 制定功能实现计划
+  3. 使用 `vibe-tools browser` 进行功能测试和验证
+
+### 测试工程师 (QA Engineer)
+- **职责**: 自动化测试、质量保证、Bug修复、测试规划
+- **专业领域**: 自动化测试、质量保证、Bug修复、测试规划
+- **主要工具**: `vibe-tools browser`, `vibe-tools test`, `vibe-tools repo`
+- **工作流程**:
+  1. 使用 `vibe-tools browser` 进行端到端测试
+  2. 使用 `vibe-tools test` 进行单元测试和集成测试
+  3. 使用 `vibe-tools repo` 分析代码质量和测试覆盖率
+
+### DevOps工程师 (DevOps Engineer)
+- **职责**: 部署管理、环境配置、监控运维、CI/CD
+- **专业领域**: 部署管理、环境配置、监控运维、CI/CD
+- **主要工具**: `vibe-tools github`, `vibe-tools linear`, `vibe-tools repo`
+- **工作流程**:
+  1. 使用 `vibe-tools github` 管理代码仓库和部署
+  2. 使用 `vibe-tools linear` 管理任务和项目进度
+  3. 使用 `vibe-tools repo` 分析部署配置和监控
+
+## 协作工作流程
+
+### 项目启动阶段
+1. **项目总监** 使用 `vibe-tools web` 进行市场调研和技术趋势分析
+2. **技术架构师** 使用 `vibe-tools repo` 分析现有技术栈和架构
+3. **全栈开发** 使用 `vibe-tools plan` 制定技术实现方案
+4. **测试工程师** 使用 `vibe-tools browser` 设计测试方案
+5. **DevOps工程师** 使用 `vibe-tools github` 配置项目环境
+
+### 开发阶段
+1. **全栈开发** 使用 `vibe-tools repo` 进行代码开发和实现
+2. **测试工程师** 使用 `vibe-tools browser` 进行自动化测试
+3. **技术架构师** 使用 `vibe-tools repo` 进行代码审查和架构优化
+4. **DevOps工程师** 使用 `vibe-tools github` 管理代码仓库和CI/CD
+
+### 测试阶段
+1. **测试工程师** 使用 `vibe-tools browser` 进行端到端测试
+2. **全栈开发** 使用 `vibe-tools repo` 修复Bug和优化代码
+3. **技术架构师** 使用 `vibe-tools repo` 进行性能优化
+4. **项目总监** 使用 `vibe-tools doc` 生成测试报告
+
+### 部署阶段
+1. **DevOps工程师** 使用 `vibe-tools github` 管理部署流程
+2. **测试工程师** 使用 `vibe-tools browser` 进行生产环境测试
+3. **项目总监** 使用 `vibe-tools linear` 跟踪项目进度和里程碑
+4. **技术架构师** 使用 `vibe-tools doc` 生成部署文档
+
+## 协作原则
+
+### 角色协作
+- 每个AI角色都有明确的职责和工具
+- 角色之间可以相互协作和反馈
+- 支持角色之间的信息传递和任务交接
+
+### 工具使用
+- 优先使用vibe-tools命令进行任务执行
+- 根据任务类型选择合适的AI角色和工具
+- 支持多角色协作完成复杂任务
+
+### 质量保证
+- 每个阶段都有相应的质量检查点
+- 支持角色之间的相互验证和反馈
+- 提供完整的任务执行记录和结果
+
+## 使用示例
+
+### 功能开发场景
+```bash
+# 1. 项目总监 - 需求分析
+vibe-tools web "用户认证功能的最佳实践和安全性要求"
+
+# 2. 技术架构师 - 架构设计
+vibe-tools repo "分析现有项目的认证架构，设计新的认证方案"
+
+# 3. 全栈开发 - 实现规划
+vibe-tools plan "实现用户认证功能，包括登录、注册、密码重置"
+
+# 4. 测试工程师 - 测试验证
+vibe-tools browser "测试用户认证功能，包括正常登录和异常情况"
+
+# 5. DevOps工程师 - 部署管理
+vibe-tools github "创建认证功能的Pull Request和部署配置"
+```
+
+### Bug修复场景
+```bash
+# 1. 测试工程师 - 问题发现
+vibe-tools browser "复现用户报告的登录问题"
+
+# 2. 全栈开发 - 问题分析
+vibe-tools repo "分析登录功能的代码，找出问题根源"
+
+# 3. 技术架构师 - 解决方案
+vibe-tools plan "制定Bug修复方案，包括代码修改和测试验证"
+
+# 4. 全栈开发 - 修复实现
+vibe-tools repo "修复登录Bug，优化代码实现"
+
+# 5. 测试工程师 - 验证修复
+vibe-tools browser "验证Bug修复效果，确保功能正常"
+```

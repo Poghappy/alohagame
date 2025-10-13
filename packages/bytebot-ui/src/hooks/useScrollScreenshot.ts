@@ -71,12 +71,12 @@ export function useScrollScreenshot({ messages, scrollContainerRef }: UseScrollS
   const handleScroll = useCallback((scrollElement: HTMLElement) => {
     if (allScreenshots.length === 0) return;
 
-    const now = Date.now();
+    const now = typeof window !== 'undefined' ? Date.now() : 0;
     if (now - lastScrollTime.current < 100) return;
     lastScrollTime.current = now;
 
     setTimeout(() => {
-      if ((Date.now() - now) <= 150 && allScreenshots.length > 0) {
+      if (typeof window !== 'undefined' && (Date.now() - now) <= 150 && allScreenshots.length > 0) {
         setCurrentScreenshot(prevScreenshot => {
           const screenshot = getScreenshotForScrollPosition(allScreenshots, messages, scrollElement);
           

@@ -1,2 +1,21 @@
-# Ignore formatting in docs folder
-/docs/**
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+coverage/
+.nyc_output
+*.log
+*.tgz
+*.tar.gz
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

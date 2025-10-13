@@ -22,7 +22,8 @@ export function VncViewer({ viewOnly = true }: VncViewerProps) {
   useEffect(() => {
     if (typeof window === "undefined") return; // SSR safety‑net
     const proto = window.location.protocol === "https:" ? "wss" : "ws";
-    setWsUrl(`${proto}://${window.location.host}/api/proxy/websockify`);
+    // 直接连接到桌面服务的websockify代理
+    setWsUrl(`${proto}://localhost:9990/websockify`);
   }, []);
 
   return (

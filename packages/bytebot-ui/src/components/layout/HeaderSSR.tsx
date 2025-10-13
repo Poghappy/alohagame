@@ -1,0 +1,83 @@
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+// Image and theme not used here; Logo component handles theme
+import { Logo } from "./Logo";
+
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  DocumentCodeIcon,
+  TaskDaily01Icon,
+  Home01Icon,
+  ComputerIcon,
+} from "@hugeicons/core-free-icons";
+import { usePathname } from "next/navigation";
+
+export function HeaderSSR() {
+  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+
+  // After mounting, we can safely show the theme-dependent content
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Function to determine if a link is active
+  const isActive = (path: string) => {
+    if (path === "/") {
+      return pathname === "/";
+    }
+    return pathname?.startsWith(path);
+  };
+
+  // Get classes for navigation links based on active state
+  const getLinkClasses = (path: string) => {
+    const baseClasses =
+      "flex items-center gap-1.5 transition-colors px-3 py-1.5 rounded-lg";
+    const activeClasses =
+      "bg-bytebot-bronze-light-a3 text-bytebot-bronze-light-12";
+    const inactiveClasses =
+      "text-bytebot-bronze-dark-9 hover:bg-bytebot-bronze-light-a1 hover:text-bytebot-bronze-light-12";
+
+    return `${baseClasses} ${isActive(path) ? activeClasses : inactiveClasses}`;
+  };
+
+  return (
+    <header className="bg-background flex items-center justify-between border-b p-4" suppressHydrationWarning>
+      <div className="flex items-center gap-6">
+        {/* Logo without link */}
+        <div>
+          {mounted ? (
+            <Logo className="h-8 w-auto" width={110} height={32} alt="AlohaGameBot Logo" />
+          ) : (
+            <div className="h-8 w-[110px]" />
+          )}
+        </div>
+        <div className="border-bytebot-bronze-dark-11 h-5 border border-l-[0.5px]"></div>
+        <div className="flex items-center gap-2">
+          <Link href="/" className={getLinkClasses("/")}>
+            <HugeiconsIcon icon={Home01Icon} className="h-4 w-4" />
+            <span className="text-sm" suppressHydrationWarning>Home</span>
+          </Link>
+          <Link href="/tasks" className={getLinkClasses("/tasks")}>
+            <HugeiconsIcon icon={TaskDaily01Icon} className="h-4 w-4" />
+            <span className="text-sm" suppressHydrationWarning>Tasks</span>
+          </Link>
+          <Link href="/desktop" className={getLinkClasses("/desktop")}>
+            <HugeiconsIcon icon={ComputerIcon} className="h-4 w-4" />
+            <span className="text-sm" suppressHydrationWarning>Desktop</span>
+          </Link>
+          <Link
+            href="https://docs.alohagamebot.ai/quickstart"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={getLinkClasses("https://docs.bytebot.ai")}
+          >
+            <HugeiconsIcon icon={DocumentCodeIcon} className="h-4 w-4" />
+            <span className="text-sm" suppressHydrationWarning>Docs</span>
+          </Link>
+        </div>
+      </div>
+      <div className="flex items-center gap-3"></div>
+    </header>
+  );
+}

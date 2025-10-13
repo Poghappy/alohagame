@@ -1,6 +1,6 @@
 apiVersion: v2
-name: bytebot
-description: Bytebot - Complete deployment package
+name: alohagamebot
+description: AlohaGameBot - Complete deployment package
 type: application
 version: 0.1.0
 appVersion: "edge"
@@ -23,10 +23,10 @@ dependencies:
     repository: file://./charts/bytebot-llm-proxy
     condition: bytebot-llm-proxy.enabled
 keywords:
-  - bytebot
+  - alohagamebot
   - automation
   - remote-desktop
 maintainers:
-  - name: Bytebot Team
+  - name: AlohaGameBot Team
 sources:
-  - https://github.com/bytebot-ai/bytebot
+  - https://github.com/alohagamebot/alohagamebot

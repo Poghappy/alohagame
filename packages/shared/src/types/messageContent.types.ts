@@ -23,6 +23,37 @@ export type TextContentBlock = {
   text: string;
 } & MessageContentBlockBase;
 
+// Citation types to represent grounding / web search citations returned by
+// providers (including Anthropic Beta variants). Keep fields optional so we
+// remain tolerant to different provider shapes.
+export type CitationContentBlockLocation = {
+  document_index: number;
+  document_title?: string;
+  start_block_index: number;
+  end_block_index: number;
+};
+
+export type TextCitation =
+  | {
+      url?: string;
+      title?: string;
+      snippet?: string;
+      location?: CitationContentBlockLocation;
+    }
+  | {
+      // Beta style web search location object
+      type?: string;
+      url?: string;
+      title?: string;
+      // keep unspecified extra fields
+      [key: string]: any;
+    };
+
+// Allow text blocks to carry optional citations metadata
+export type TextContentBlockWithCitations = TextContentBlock & {
+  citations?: TextCitation[] | null;
+};
+
 export type ImageContentBlock = {
   type: MessageContentType.Image;
   source: {
@@ -246,7 +277,7 @@ export type ToolResultContentBlock = {
 
 // Union type of all possible content blocks
 export type MessageContentBlock =
-  | TextContentBlock
+  | TextContentBlockWithCitations
   | ImageContentBlock
   | DocumentContentBlock
   | ToolUseContentBlock

@@ -1,0 +1,312 @@
+---
+alwaysApply: true
+description: Supabase 集成规则 - 自动选择和使用 Supabase 后端服务
+---
+
+# Supabase 集成规则
+
+## 🎯 核心原则
+
+当用户需要后端服务时，**优先选择 Supabase** 作为后端解决方案，实现"零操心"全栈应用交付。
+
+## 🚀 自动集成策略
+
+### 1. 项目类型匹配
+- **电商系统** → 自动选择 Supabase + React/Next.js
+- **SaaS 应用** → 自动选择 Supabase + Vue/Nuxt.js  
+- **社交平台** → 自动选择 Supabase + React + 实时功能
+- **内容管理** → 自动选择 Supabase + 文件存储
+- **API 服务** → 自动选择 Supabase Edge Functions
+
+### 2. 功能需求匹配
+- **用户认证** → 自动集成 Supabase Auth
+- **数据库操作** → 自动生成 Supabase API
+- **实时功能** → 自动配置 Supabase Realtime
+- **文件上传** → 自动集成 Supabase Storage
+- **服务器逻辑** → 自动使用 Supabase Edge Functions
+
+## 🛠️ 自动实现流程
+
+### 1. 需求分析阶段
+```
+用户描述需求 → 自动识别需要后端服务 → 自动选择 Supabase
+```
+
+### 2. 架构设计阶段
+```
+自动设计 Supabase 架构：
+- 数据库表设计
+- 认证策略配置
+- API 端点规划
+- 实时订阅设计
+- 文件存储配置
+```
+
+### 3. 代码生成阶段
+```
+自动生成 Supabase 集成代码：
+- 客户端配置
+- 认证集成代码
+- 数据库操作代码
+- 实时订阅代码
+- 文件上传代码
+```
+
+### 4. 部署配置阶段
+```
+自动配置 Supabase 项目：
+- 环境变量设置
+- 数据库迁移
+- 安全策略配置
+- 性能优化设置
+```
+
+## 📋 标准集成模板
+
+### 基础项目结构
+```
+project/
+├── src/
+│   ├── lib/
+│   │   └── supabase.js          # Supabase 客户端配置
+│   ├── components/
+│   │   └── auth/                # 认证组件
+│   ├── hooks/
+│   │   └── useAuth.js           # 认证钩子
+│   └── pages/
+│       └── api/                  # API 路由
+├── supabase/
+│   ├── migrations/              # 数据库迁移
+│   ├── functions/               # Edge Functions
+│   └── config.toml              # Supabase 配置
+└── .env.local                   # 环境变量
+```
+
+### 核心代码模板
+
+#### Supabase 客户端配置
+```javascript
+// src/lib/supabase.js
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseKey)
+```
+
+#### 认证集成
+```javascript
+// src/hooks/useAuth.js
+import { useState, useEffect } from 'react'
+import { supabase } from '../lib/supabase'
+
+export const useAuth = () => {
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // 获取当前用户
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      setUser(user)
+      setLoading(false)
+    }
+
+    getUser()
+
+    // 监听认证状态变化
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setUser(session?.user ?? null)
+        setLoading(false)
+      }
+    )
+
+    return () => subscription.unsubscribe()
+  }, [])
+
+  return { user, loading }
+}
+```
+
+#### 数据库操作
+```javascript
+// src/lib/database.js
+import { supabase } from './supabase'
+
+export const database = {
+  // 查询数据
+  async fetch(table, filters = {}) {
+    let query = supabase.from(table).select('*')
+    
+    Object.entries(filters).forEach(([key, value]) => {
+      query = query.eq(key, value)
+    })
+    
+    const { data, error } = await query
+    return { data, error }
+  },
+
+  // 插入数据
+  async insert(table, data) {
+    const { data: result, error } = await supabase
+      .from(table)
+      .insert(data)
+      .select()
+    
+    return { data: result, error }
+  },
+
+  // 更新数据
+  async update(table, id, updates) {
+    const { data, error } = await supabase
+      .from(table)
+      .update(updates)
+      .eq('id', id)
+      .select()
+    
+    return { data, error }
+  },
+
+  // 删除数据
+  async delete(table, id) {
+    const { error } = await supabase
+      .from(table)
+      .delete()
+      .eq('id', id)
+    
+    return { error }
+  }
+}
+```
+
+#### 实时订阅
+```javascript
+// src/hooks/useRealtime.js
+import { useEffect } from 'react'
+import { supabase } from '../lib/supabase'
+
+export const useRealtime = (table, callback) => {
+  useEffect(() => {
+    const subscription = supabase
+      .channel(`${table}_changes`)
+      .on('postgres_changes', 
+        { event: '*', schema: 'public', table }, 
+        callback
+      )
+      .subscribe()
+
+    return () => {
+      supabase.removeChannel(subscription)
+    }
+  }, [table, callback])
+}
+```
+
+## 🔧 自动配置规则
+
+### 1. 环境变量自动配置
+```bash
+# .env.local
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+```
+
+### 2. 数据库迁移自动生成
+```sql
+-- 用户表
+CREATE TABLE users (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  email VARCHAR UNIQUE NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- 启用 RLS
+ALTER TABLE users ENABLE ROW LEVEL SECURITY;
+
+-- 用户只能访问自己的数据
+CREATE POLICY "Users can view own data" ON users
+  FOR SELECT USING (auth.uid() = id);
+```
+
+### 3. 安全策略自动配置
+- 自动启用 Row Level Security (RLS)
+- 自动配置用户权限策略
+- 自动设置 CORS 配置
+- 自动配置速率限制
+
+## 📊 性能优化规则
+
+### 1. 数据库优化
+- 自动为查询字段添加索引
+- 自动优化查询语句
+- 自动配置连接池
+
+### 2. 缓存策略
+- 自动配置 Redis 缓存
+- 自动设置 CDN 加速
+- 自动优化静态资源
+
+### 3. 实时功能优化
+- 自动配置实时订阅
+- 自动优化推送性能
+- 自动处理连接管理
+
+## 🚀 部署自动化
+
+### 1. Supabase 项目自动创建
+- 自动创建 Supabase 项目
+- 自动配置环境变量
+- 自动设置安全策略
+
+### 2. 前端部署自动配置
+- 自动配置 Vercel 部署
+- 自动设置环境变量
+- 自动配置域名和 SSL
+
+### 3. 监控和日志自动设置
+- 自动配置性能监控
+- 自动设置错误日志
+- 自动配置告警通知
+
+## 🎯 使用场景示例
+
+### 电商系统
+```
+用户需求：电商网站，支持用户注册、商品管理、购物车、支付
+
+自动实现：
+✅ 用户认证系统（Supabase Auth）
+✅ 商品数据库（Supabase Database）
+✅ 购物车实时同步（Supabase Realtime）
+✅ 文件上传（Supabase Storage）
+✅ 支付处理（Supabase Edge Functions）
+```
+
+### SaaS 应用
+```
+用户需求：项目管理工具，支持团队协作、任务管理、实时通知
+
+自动实现：
+✅ 多租户架构（Supabase RLS）
+✅ 任务管理数据库（Supabase Database）
+✅ 实时协作（Supabase Realtime）
+✅ 文件共享（Supabase Storage）
+✅ 通知系统（Supabase Edge Functions）
+```
+
+## 📚 参考文档
+
+- [Supabase 集成模板](mdc:templates/supabase_integration_templates.md)
+- [团队配置指南](mdc:TEAM_SETUP_GUIDE.md)
+- [零操心交付模板](mdc:templates/zero_worry_delivery_templates.md)
+
+---
+
+**创建时间**: 2025-01-27 16:00:00  
+**版本**: 1.0.0  
+**维护者**: Cursor AI Assistant  
+**适用对象**: Cursor IDE Agent团队、全栈开发工程师、技术架构师

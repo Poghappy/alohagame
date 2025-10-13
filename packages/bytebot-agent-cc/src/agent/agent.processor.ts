@@ -120,41 +120,68 @@ export class AgentProcessor {
   /**
    * Convert Anthropic's response content to our MessageContentBlock format
    */
-  private formatAnthropicResponse(
-    content: Anthropic.ContentBlock[],
-  ): MessageContentBlock[] {
+  // Accept any[] here because Anthropic SDK may return Beta* types that are
+  // not strictly assignable to the stable ContentBlock types. We only need
+  // the runtime shape (type, text, id, name, input, thinking, signature,
+  // data) so widening the parameter avoids TS errors while preserving
+  // behavior.
+  private formatAnthropicResponse(content: any[]): MessageContentBlock[] {
     // filter out tool_use blocks that aren't computer tool uses
-    content = content.filter(
-      (block) =>
-        block.type !== 'tool_use' || block.name.startsWith('mcp__desktop__'),
-    );
-    return content.map((block) => {
+    const filtered = content.filter((raw) => {
+      const b = (raw || {}) as { type?: string; name?: string };
+      return b.type !== 'tool_use' || String(b.name || '').startsWith('mcp__desktop__');
+    });
+
+    const blocks: MessageContentBlock[] = [];
+    for (const rawBlock of filtered) {
+      const block = (rawBlock || {}) as {
+        type?: string;
+        text?: string;
+        id?: string;
+        name?: string;
+        input?: Record<string, any>;
+        thinking?: string;
+        signature?: string;
+        data?: string;
+      };
+
+      if (!block.type) continue;
+
       switch (block.type) {
         case 'text':
-          return {
+          blocks.push({
             type: MessageContentType.Text,
-            text: block.text,
-          } as TextContentBlock;
+            text: block.text || '',
+          } as TextContentBlock);
+          break;
         case 'tool_use':
-          return {
+          blocks.push({
             type: MessageContentType.ToolUse,
-            id: block.id,
-            name: block.name.replace('mcp__desktop__', ''),
-            input: block.input,
-          } as ToolUseContentBlock;
+            id: block.id || '',
+            name: (block.name || '').replace('mcp__desktop__', ''),
+            input: block.input || {},
+          } as ToolUseContentBlock);
+          break;
         case 'thinking':
-          return {
+          blocks.push({
             type: MessageContentType.Thinking,
-            thinking: block.thinking,
-            signature: block.signature,
-          } as ThinkingContentBlock;
+            thinking: block.thinking || '',
+            signature: block.signature || '',
+          } as ThinkingContentBlock);
+          break;
         case 'redacted_thinking':
-          return {
+          blocks.push({
             type: MessageContentType.RedactedThinking,
-            data: block.data,
-          } as RedactedThinkingContentBlock;
+            data: block.data || '',
+          } as RedactedThinkingContentBlock);
+          break;
+        default:
+          // ignore unknown block types
+          break;
       }
-    });
+    }
+
+    return blocks;
   }
 
   /**
@@ -183,7 +210,7 @@ export class AgentProcessor {
       // Refresh abort controller for this iteration to avoid accumulating
       // "abort" listeners on a single AbortSignal across iterations.
       this.abortController = new AbortController();
-      for await (const message of query({
+  for await (const message of query({
         prompt: task.description,
         options: {
           abortController: this.abortController,
@@ -255,13 +282,24 @@ export class AgentProcessor {
           });
         }
       }
-    } catch (error: any) {
-      if (error?.message === 'Claude Code process aborted by user') {
+    } catch (error: unknown) {
+      // Safely inspect unknown error
+      let aborted = false;
+      let messageStr: string | undefined;
+      let stackStr: string | undefined;
+      if (typeof error === 'object' && error !== null) {
+        const anyErr = error as Record<string, any>;
+        messageStr = typeof anyErr.message === 'string' ? anyErr.message : undefined;
+        stackStr = typeof anyErr.stack === 'string' ? anyErr.stack : undefined;
+        aborted = messageStr === 'Claude Code process aborted by user';
+      }
+
+      if (aborted) {
         this.logger.warn(`Processing aborted for task ID: ${taskId}`);
       } else {
         this.logger.error(
-          `Error during task processing iteration for task ID: ${taskId} - ${error.message}`,
-          error.stack,
+          `Error during task processing iteration for task ID: ${taskId} - ${messageStr}`,
+          stackStr,
         );
         await this.tasksService.update(taskId, {
           status: TaskStatus.FAILED,

@@ -255,7 +255,7 @@ export function useChatSession({ initialTaskId }: UseChatSessionProps = {}) {
       if (!response) {
         // Add error message to chat
         const errorMessage: Message = {
-          id: Date.now().toString(),
+          id: typeof window !== 'undefined' ? Date.now().toString() : 'error-' + Math.random().toString(36).substr(2, 9),
           content: [
             {
               type: MessageContentType.Text,

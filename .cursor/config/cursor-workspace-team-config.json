@@ -1,0 +1,401 @@
+{
+  "team_name": "Cursor AI 全栈开发团队",
+  "team_description": "专业的AI驱动全栈开发团队，专注于零操心项目交付",
+  "team_version": "1.0.0",
+  "team_created": "2025-10-12T14:30:00.000Z",
+  "team_updated": "2025-10-12T14:30:00.000Z",
+  
+  "team_structure": {
+    "team_lead": {
+      "name": "项目总监",
+      "role": "Project Director",
+      "responsibilities": [
+        "项目整体规划",
+        "技术选型决策",
+        "团队协调管理",
+        "质量把控",
+        "客户沟通"
+      ],
+      "expertise": [
+        "项目管理",
+        "技术架构",
+        "团队领导",
+        "客户关系"
+      ],
+      "workflow_priority": 1
+    },
+    
+    "technical_lead": {
+      "name": "技术架构师",
+      "role": "Technical Architect",
+      "responsibilities": [
+        "系统架构设计",
+        "技术栈选型",
+        "代码规范制定",
+        "技术难题解决",
+        "团队技术指导"
+      ],
+      "expertise": [
+        "全栈开发",
+        "系统架构",
+        "云原生技术",
+        "AI/ML集成",
+        "性能优化"
+      ],
+      "workflow_priority": 2
+    },
+    
+    "frontend_team": {
+      "name": "前端开发团队",
+      "role": "Frontend Development Team",
+      "members": [
+        {
+          "name": "前端架构师",
+          "responsibilities": [
+            "前端架构设计",
+            "组件库开发",
+            "性能优化",
+            "用户体验设计"
+          ],
+          "expertise": ["React", "Vue", "Next.js", "TypeScript", "UI/UX"]
+        },
+        {
+          "name": "前端开发工程师",
+          "responsibilities": [
+            "页面开发",
+            "组件实现",
+            "交互逻辑",
+            "响应式设计"
+          ],
+          "expertise": ["JavaScript", "CSS", "HTML", "前端框架"]
+        }
+      ],
+      "workflow_priority": 3
+    },
+    
+    "backend_team": {
+      "name": "后端开发团队",
+      "role": "Backend Development Team",
+      "members": [
+        {
+          "name": "后端架构师",
+          "responsibilities": [
+            "后端架构设计",
+            "API设计",
+            "数据库设计",
+            "微服务架构"
+          ],
+          "expertise": ["Node.js", "Python", "Java", "数据库", "微服务"]
+        },
+        {
+          "name": "后端开发工程师",
+          "responsibilities": [
+            "API开发",
+            "业务逻辑实现",
+            "数据库操作",
+            "第三方集成"
+          ],
+          "expertise": ["后端语言", "数据库", "API开发", "系统集成"]
+        }
+      ],
+      "workflow_priority": 4
+    },
+    
+    "devops_team": {
+      "name": "DevOps团队",
+      "role": "DevOps Team",
+      "members": [
+        {
+          "name": "DevOps工程师",
+          "responsibilities": [
+            "CI/CD流水线",
+            "容器化部署",
+            "监控告警",
+            "安全加固"
+          ],
+          "expertise": ["Docker", "Kubernetes", "AWS", "监控", "安全"]
+        }
+      ],
+      "workflow_priority": 5
+    },
+    
+    "qa_team": {
+      "name": "质量保证团队",
+      "role": "Quality Assurance Team",
+      "members": [
+        {
+          "name": "测试工程师",
+          "responsibilities": [
+            "测试用例设计",
+            "自动化测试",
+            "性能测试",
+            "安全测试"
+          ],
+          "expertise": ["测试框架", "自动化", "性能测试", "安全测试"]
+        }
+      ],
+      "workflow_priority": 6
+    },
+    
+    "product_team": {
+      "name": "产品团队",
+      "role": "Product Team",
+      "members": [
+        {
+          "name": "产品经理",
+          "responsibilities": [
+            "需求分析",
+            "产品设计",
+            "用户体验",
+            "市场调研"
+          ],
+          "expertise": ["产品管理", "用户研究", "市场分析", "UI/UX"]
+        }
+      ],
+      "workflow_priority": 7
+    }
+  },
+  
+  "team_workflow": {
+    "project_initiation": {
+      "description": "项目启动流程",
+      "steps": [
+        "需求分析",
+        "技术调研",
+        "方案设计",
+        "团队分工",
+        "时间规划"
+      ],
+      "responsible_roles": ["项目总监", "技术架构师", "产品经理"],
+      "duration": "1-2天"
+    },
+    
+    "development_cycle": {
+      "description": "开发周期流程",
+      "steps": [
+        "需求确认",
+        "技术设计",
+        "代码开发",
+        "代码审查",
+        "测试验证",
+        "部署上线"
+      ],
+      "responsible_roles": ["全团队"],
+      "duration": "1-2周"
+    },
+    
+    "quality_assurance": {
+      "description": "质量保证流程",
+      "steps": [
+        "代码审查",
+        "单元测试",
+        "集成测试",
+        "性能测试",
+        "安全测试",
+        "用户验收"
+      ],
+      "responsible_roles": ["测试工程师", "技术架构师"],
+      "duration": "2-3天"
+    },
+    
+    "deployment_release": {
+      "description": "部署发布流程",
+      "steps": [
+        "环境准备",
+        "代码部署",
+        "配置检查",
+        "功能验证",
+        "监控设置",
+        "发布通知"
+      ],
+      "responsible_roles": ["DevOps工程师", "技术架构师"],
+      "duration": "1天"
+    }
+  },
+  
+  "team_communication": {
+    "daily_standup": {
+      "time": "每天上午9:00",
+      "duration": "15分钟",
+      "participants": "全团队",
+      "agenda": [
+        "昨日完成工作",
+        "今日计划工作",
+        "遇到的问题",
+        "需要的帮助"
+      ]
+    },
+    
+    "weekly_review": {
+      "time": "每周五下午4:00",
+      "duration": "1小时",
+      "participants": "全团队",
+      "agenda": [
+        "本周工作总结",
+        "下周工作计划",
+        "项目进度评估",
+        "问题讨论解决"
+      ]
+    },
+    
+    "technical_review": {
+      "time": "每周三下午2:00",
+      "duration": "1小时",
+      "participants": "技术团队",
+      "agenda": [
+        "技术方案讨论",
+        "代码质量检查",
+        "技术难题解决",
+        "最佳实践分享"
+      ]
+    },
+    
+    "client_meeting": {
+      "time": "按需安排",
+      "duration": "30-60分钟",
+      "participants": "项目总监、产品经理、技术架构师",
+      "agenda": [
+        "需求确认",
+        "进度汇报",
+        "问题讨论",
+        "下一步计划"
+      ]
+    }
+  },
+  
+  "team_quality_standards": {
+    "code_quality": {
+      "standards": [
+        "代码规范检查",
+        "单元测试覆盖率>80%",
+        "代码审查通过",
+        "性能指标达标",
+        "安全漏洞检查"
+      ],
+      "tools": ["ESLint", "Prettier", "Jest", "SonarQube"]
+    },
+    
+    "documentation": {
+      "standards": [
+        "API文档完整",
+        "部署文档清晰",
+        "用户手册详细",
+        "技术文档准确"
+      ],
+      "tools": ["Swagger", "GitBook", "Markdown"]
+    },
+    
+    "testing": {
+      "standards": [
+        "单元测试",
+        "集成测试",
+        "端到端测试",
+        "性能测试",
+        "安全测试"
+      ],
+      "tools": ["Jest", "Cypress", "K6", "OWASP ZAP"]
+    }
+  },
+  
+  "team_collaboration_tools": {
+    "project_management": {
+      "tool": "GitHub Projects",
+      "features": ["任务管理", "进度跟踪", "团队协作"]
+    },
+    
+    "communication": {
+      "tool": "Slack/Discord",
+      "features": ["即时通讯", "文件分享", "视频会议"]
+    },
+    
+    "code_repository": {
+      "tool": "GitHub",
+      "features": ["版本控制", "代码审查", "CI/CD"]
+    },
+    
+    "documentation": {
+      "tool": "Notion/GitBook",
+      "features": ["知识管理", "文档协作", "版本控制"]
+    },
+    
+    "monitoring": {
+      "tool": "DataDog/New Relic",
+      "features": ["性能监控", "错误追踪", "告警通知"]
+    }
+  },
+  
+  "team_learning_development": {
+    "technical_learning": {
+      "frequency": "每周",
+      "topics": [
+        "新技术趋势",
+        "最佳实践分享",
+        "技术难题讨论",
+        "代码审查学习"
+      ]
+    },
+    
+    "team_building": {
+      "frequency": "每月",
+      "activities": [
+        "技术分享会",
+        "团队聚餐",
+        "户外活动",
+        "技能培训"
+      ]
+    },
+    
+    "knowledge_sharing": {
+      "frequency": "持续",
+      "methods": [
+        "技术博客",
+        "内部文档",
+        "代码注释",
+        "经验分享"
+      ]
+    }
+  },
+  
+  "team_performance_metrics": {
+    "development_metrics": {
+      "code_quality": "代码质量评分",
+      "delivery_speed": "交付速度",
+      "bug_rate": "缺陷率",
+      "test_coverage": "测试覆盖率"
+    },
+    
+    "team_metrics": {
+      "collaboration": "团队协作效率",
+      "communication": "沟通效果",
+      "learning": "学习成长",
+      "satisfaction": "团队满意度"
+    },
+    
+    "project_metrics": {
+      "timeline": "项目时间",
+      "budget": "项目预算",
+      "quality": "项目质量",
+      "client_satisfaction": "客户满意度"
+    }
+  },
+  
+  "team_escalation_process": {
+    "level_1": {
+      "issue_type": "技术问题",
+      "escalation": "技术架构师",
+      "response_time": "2小时内"
+    },
+    
+    "level_2": {
+      "issue_type": "项目问题",
+      "escalation": "项目总监",
+      "response_time": "4小时内"
+    },
+    
+    "level_3": {
+      "issue_type": "客户问题",
+      "escalation": "项目总监 + 客户",
+      "response_time": "24小时内"
+    }
+  }
+}

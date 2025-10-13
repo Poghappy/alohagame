@@ -1,0 +1,191 @@
+---
+inclusion: always
+---
+
+# 工具集成规则
+
+## Vibe-Tools集成
+
+vibe-tools已安装并可用，鼓励使用以下命令：
+
+### 网络研究 (Perplexity)
+`vibe-tools web "<查询>"` - 使用Perplexity进行网络搜索和研究
+- **适用场景**: 技术调研、竞品分析、最新趋势研究、解决方案搜索
+- **使用示例**: 
+  - `vibe-tools web "最新的React 18特性"`
+  - `vibe-tools web "用户认证最佳实践"`
+  - `vibe-tools web "微服务架构设计模式"`
+
+### 代码分析 (Gemini)
+`vibe-tools repo "<查询>"` - 使用Gemini进行代码库分析
+- **适用场景**: 架构分析、代码审查、技术债务评估、代码理解
+- **使用示例**:
+  - `vibe-tools repo "分析这个项目的架构设计"`
+  - `vibe-tools repo "检查代码质量和潜在问题"`
+  - `vibe-tools repo "理解这个组件的实现逻辑"`
+
+### 实现规划 (OpenAI)
+`vibe-tools plan "<查询>"` - 使用OpenAI制定实现方案
+- **适用场景**: 功能规划、技术方案设计、开发计划、实现策略
+- **使用示例**:
+  - `vibe-tools plan "实现用户认证功能"`
+  - `vibe-tools plan "设计微服务架构"`
+  - `vibe-tools plan "优化应用性能"`
+
+### 自动化测试 (Stagehand)
+`vibe-tools browser "<操作>"` - 使用Stagehand进行浏览器自动化
+- **适用场景**: 端到端测试、用户界面测试、功能验证、自动化操作
+- **使用示例**:
+  - `vibe-tools browser "测试登录功能"`
+  - `vibe-tools browser "验证用户注册流程"`
+  - `vibe-tools browser "检查页面响应性"`
+
+### 文档生成 (Gemini)
+`vibe-tools doc "<描述>"` - 使用Gemini生成技术文档
+- **适用场景**: API文档、技术文档、项目文档、代码注释
+- **使用示例**:
+  - `vibe-tools doc "生成API使用文档"`
+  - `vibe-tools doc "创建项目README"`
+  - `vibe-tools doc "编写代码注释"`
+
+### 项目管理 (GitHub + Linear)
+`vibe-tools github "<操作>"` - GitHub集成
+`vibe-tools linear "<操作>"` - Linear项目管理
+- **适用场景**: 代码管理、任务跟踪、团队协作、项目进度
+- **使用示例**:
+  - `vibe-tools github "创建Pull Request"`
+  - `vibe-tools linear "创建新任务"`
+  - `vibe-tools github "查看Issues"`
+
+### 直接模型查询
+`vibe-tools ask "<问题>"` - 直接询问AI模型
+- **适用场景**: 技术问题、概念解释、最佳实践咨询
+- **使用示例**:
+  - `vibe-tools ask "什么是微服务架构？"`
+  - `vibe-tools ask "如何优化React应用性能？"`
+  - `vibe-tools ask "解释JWT认证机制"`
+
+## 工具使用原则
+
+### 1. 优先使用vibe-tools命令
+- 优先使用vibe-tools命令而不是直接询问
+- 根据任务类型选择合适的工具
+- 组合使用多个工具完成复杂任务
+
+### 2. 提供清晰的上下文
+- 始终提供清晰的查询和上下文
+- 包含相关的代码片段和项目信息
+- 说明具体的需求和目标
+
+### 3. 选择合适的工具
+- **技术调研** → 使用 `vibe-tools web`
+- **代码分析** → 使用 `vibe-tools repo`
+- **实现规划** → 使用 `vibe-tools plan`
+- **功能测试** → 使用 `vibe-tools browser`
+- **文档生成** → 使用 `vibe-tools doc`
+- **项目管理** → 使用 `vibe-tools github` 和 `vibe-tools linear`
+
+### 4. 组合使用工具
+- 可以组合使用多个工具完成复杂任务
+- 支持工具之间的信息传递和协作
+- 提供完整的任务执行记录
+
+## 使用示例
+
+### 技术调研场景
+```bash
+# 1. 网络研究
+vibe-tools web "最新的React 18特性"
+
+# 2. 代码分析
+vibe-tools repo "分析现有项目的技术栈"
+
+# 3. 实现规划
+vibe-tools plan "制定React 18升级方案"
+```
+
+### 功能开发场景
+```bash
+# 1. 需求分析
+vibe-tools web "用户认证最佳实践"
+
+# 2. 代码实现
+vibe-tools repo "分析认证模块的实现"
+
+# 3. 测试验证
+vibe-tools browser "测试登录功能"
+```
+
+### 项目交付场景
+```bash
+# 1. 文档生成
+vibe-tools doc "生成API文档"
+
+# 2. 项目管理
+vibe-tools linear "创建项目里程碑"
+
+# 3. 代码管理
+vibe-tools github "创建Pull Request"
+```
+
+### Bug修复场景
+```bash
+# 1. 问题分析
+vibe-tools repo "分析Bug的代码实现"
+
+# 2. 修复方案
+vibe-tools plan "制定Bug修复方案"
+
+# 3. 测试验证
+vibe-tools browser "验证Bug修复效果"
+```
+
+## 工具配置
+
+### 环境变量
+确保设置以下环境变量：
+- `OPENAI_API_KEY` - OpenAI API密钥
+- `ANTHROPIC_API_KEY` - Anthropic API密钥
+- `GEMINI_API_KEY` - Google Gemini API密钥
+- `PERPLEXITY_API_KEY` - Perplexity API密钥
+- `GITHUB_TOKEN` - GitHub访问令牌
+- `LINEAR_API_KEY` - Linear API密钥
+
+### 配置文件
+vibe-tools配置文件位于 `vibe-tools.config.json`：
+```json
+{
+  "web": {
+    "provider": "perplexity",
+    "model": "sonar-pro"
+  },
+  "plan": {
+    "fileProvider": "gemini",
+    "thinkingProvider": "openai",
+    "fileModel": "gemini-2.5-flash",
+    "thinkingModel": "o3"
+  },
+  "repo": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash"
+  },
+  "doc": {
+    "provider": "gemini",
+    "model": "gemini-2.5-pro"
+  }
+}
+```
+
+## 故障排除
+
+### 常见问题
+1. **命令未找到** - 确保vibe-tools已正确安装
+2. **API密钥错误** - 检查环境变量配置
+3. **网络连接问题** - 检查网络连接和代理设置
+4. **权限问题** - 检查GitHub和Linear的访问权限
+
+### 调试方法
+1. 使用 `vibe-tools --help` 查看帮助信息
+2. 检查日志文件获取详细错误信息
+3. 验证API密钥和权限配置
+4. 测试网络连接和代理设置
